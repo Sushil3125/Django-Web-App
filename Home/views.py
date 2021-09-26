@@ -59,17 +59,21 @@ def irisRec(request):
     return render(request, 'irisRec.html')
 
 def spambot(request):
+    n=0
+    m=0
     if request.method=='POST':
         temp1=request.POST.get('message1')
+        temp2=request.POST.get('message2')
         print(temp1)
-        n=0
-        m=10
+        m=int(temp2)
         print (m)
         time.sleep(5)
         while (n<=m):
             pyautogui.typewrite(temp1)
             pyautogui.press("enter")
             n=n+1
+            if n>m:
+                break
     return render(request, 'spambot.html')
 
 
